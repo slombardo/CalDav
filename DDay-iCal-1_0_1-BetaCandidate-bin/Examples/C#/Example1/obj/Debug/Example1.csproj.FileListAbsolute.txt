@@ -16,3 +16,21 @@ C:\Users\salvatore.lombardo\Documents\Visual Studio 2010\Projects\DDay-iCal-1_0_
 C:\Users\salvatore.lombardo\Documents\Visual Studio 2010\Projects\DDay-iCal-1_0_1-BetaCandidate-bin\Examples\C#\Example1\obj\Debug\GenerateResource.write.1.tlog
 C:\Users\salvatore.lombardo\Documents\Visual Studio 2010\Projects\DDay-iCal-1_0_1-BetaCandidate-bin\Examples\C#\Example1\obj\Debug\Example1.exe
 C:\Users\salvatore.lombardo\Documents\Visual Studio 2010\Projects\DDay-iCal-1_0_1-BetaCandidate-bin\Examples\C#\Example1\obj\Debug\Example1.pdb
+C:\Git Workspace\CalDav\DDay-iCal-1_0_1-BetaCandidate-bin\Examples\C#\Example1\bin\Debug\Example1.exe.config
+C:\Git Workspace\CalDav\DDay-iCal-1_0_1-BetaCandidate-bin\Examples\C#\Example1\obj\Debug\Example1.exe
+C:\Git Workspace\CalDav\DDay-iCal-1_0_1-BetaCandidate-bin\Examples\C#\Example1\obj\Debug\Example1.pdb
+C:\Git Workspace\CalDav\DDay-iCal-1_0_1-BetaCandidate-bin\Examples\C#\Example1\bin\Debug\Calendars\Barça 2006 - 2007.ics
+C:\Git Workspace\CalDav\DDay-iCal-1_0_1-BetaCandidate-bin\Examples\C#\Example1\bin\Debug\Calendars\lotr.ics
+C:\Git Workspace\CalDav\DDay-iCal-1_0_1-BetaCandidate-bin\Examples\C#\Example1\bin\Debug\Calendars\To-do.ics
+C:\Git Workspace\CalDav\DDay-iCal-1_0_1-BetaCandidate-bin\Examples\C#\Example1\bin\Debug\Calendars\USHolidays.ics
+C:\Git Workspace\CalDav\DDay-iCal-1_0_1-BetaCandidate-bin\Examples\C#\Example1\bin\Debug\Example1.exe
+C:\Git Workspace\CalDav\DDay-iCal-1_0_1-BetaCandidate-bin\Examples\C#\Example1\bin\Debug\Example1.pdb
+C:\Git Workspace\CalDav\DDay-iCal-1_0_1-BetaCandidate-bin\Examples\C#\Example1\bin\Debug\DDay.iCal.dll
+C:\Git Workspace\CalDav\DDay-iCal-1_0_1-BetaCandidate-bin\Examples\C#\Example1\bin\Debug\antlr.runtime.dll
+C:\Git Workspace\CalDav\DDay-iCal-1_0_1-BetaCandidate-bin\Examples\C#\Example1\obj\Debug\ResolveAssemblyReference.cache
+C:\Git Workspace\CalDav\DDay-iCal-1_0_1-BetaCandidate-bin\Examples\C#\Example1\obj\Debug\Example1.Properties.Resources.resources
+C:\Git Workspace\CalDav\DDay-iCal-1_0_1-BetaCandidate-bin\Examples\C#\Example1\obj\Debug\Example1.Schedule.resources
+C:\Git Workspace\CalDav\DDay-iCal-1_0_1-BetaCandidate-bin\Examples\C#\Example1\obj\Debug\GenerateResource.read.1.tlog
+C:\Git Workspace\CalDav\DDay-iCal-1_0_1-BetaCandidate-bin\Examples\C#\Example1\obj\Debug\ResGen.read.1.tlog
+C:\Git Workspace\CalDav\DDay-iCal-1_0_1-BetaCandidate-bin\Examples\C#\Example1\obj\Debug\GenerateResource.write.1.tlog
+C:\Git Workspace\CalDav\DDay-iCal-1_0_1-BetaCandidate-bin\Examples\C#\Example1\obj\Debug\ResGen.write.1.tlog

@@ -46,70 +46,17 @@ namespace Example1
             try
             {
                 //IICalendarCollection calendar = iCalendar.LoadFromUri(new Uri(@"http://p03-caldav.icloud.com"), "chef_boyardy@me.com", "");
+				String username = "chef_boyardy@hotmail.com";
+				String password = "";
+				String caldavUrl = @"https://caldav.icloud.com";
+				String methodName = "OPTIONS";
 
-                string options = @"/principals/ HTTP/1.1";
-                // Create an HTTP request for the URL.
-                HttpWebRequest httpGetRequest =
-                   (HttpWebRequest)WebRequest.Create(@"https://chef_boyardy%40hotmail.com@p01-caldav.icloud.com:443/principals");
+				ExectueMethod(username, password, caldavUrl, methodName, null, caldavUrl + @" HTTP/1.1", null);
+				WebHeaderCollection headers = new WebHeaderCollection();
+				headers.Add(@"Translate", "F");
+				string content = "<?xml version=\"1.0\" encoding=\"utf-8\"?><propfind xmlns=\"DAV:\"><allprop/></propfind>";
+				ExectueMethod(username, password, caldavUrl, "PROPFIND", headers, content, "text/xml" );
 
-                // Set up new credentials.
-                httpGetRequest.Credentials =
-                   new NetworkCredential("chef_boyardy@hotmail.com", "");
-
-                // Pre-authenticate the request.
-                httpGetRequest.PreAuthenticate = true;
-
-                // Define the HTTP method.
-                httpGetRequest.Method = @"OPTIONS";
-
-                // Specify the request for source code.
-                httpGetRequest.Headers.Add(@"Translate", "F");
-
-                byte[] optionsArray = Encoding.UTF8.GetBytes(options);
-                httpGetRequest.ContentLength = optionsArray.Length;
-
-                // Retrieve the request stream.
-                Stream requestStream =
-                   httpGetRequest.GetRequestStream();
-
-                // Write the string to the destination as a text file.
-                requestStream.Write(optionsArray, 0, optionsArray.Length);
-
-                // Close the request stream.
-                requestStream.Close();
-
-
-
-                // Retrieve the response.
-                HttpWebResponse httpGetResponse =
-                   (HttpWebResponse)httpGetRequest.GetResponse();
-
-                // Retrieve the response stream.
-                Stream responseStream =
-                   httpGetResponse.GetResponseStream();
-
-                // Retrieve the response length.
-                long responseLength =
-                   httpGetResponse.ContentLength;
-
-                // Create a stream reader for the response.
-                StreamReader streamReader =
-                   new StreamReader(responseStream, Encoding.UTF8);
-
-                // Write the response status to the console.
-                Console.WriteLine(
-                   @"GET Response: {0}",
-                   httpGetResponse.StatusDescription);
-                Console.WriteLine(
-                   @"  Response Length: {0}",
-                   responseLength);
-                Console.WriteLine(
-                   @"  Response Text: {0}",
-                   streamReader.ReadToEnd());
-
-                // Close the response streams.
-                streamReader.Close();
-                responseStream.Close();
 
 
 
@@ -124,6 +71,87 @@ namespace Example1
             _Calendars.AddRange(iCalendar.LoadFromFile(@"Calendars\To-do.ics"));
             _Calendars.AddRange(iCalendar.LoadFromFile(@"Calendars\Barça 2006 - 2007.ics"));
         }
+
+		private static void ExectueMethod(String username, String password, String caldavUrl, String methodName, WebHeaderCollection headers, string content, string contentType)
+		{
+//            <?xml version="1.0" encoding="utf-8"?>
+//<propfind xmlns="DAV:">
+//  <allprop/>
+//</propfind>
+
+
+
+			// Create an HTTP request for the URL.
+			HttpWebRequest httpGetRequest =
+			   (HttpWebRequest)WebRequest.Create(caldavUrl);
+
+			// Set up new credentials.
+			httpGetRequest.Credentials =
+			   new NetworkCredential(username, password);
+
+			// Pre-authenticate the request.
+			httpGetRequest.PreAuthenticate = true;
+
+			// Define the HTTP method.
+			httpGetRequest.Method = methodName;
+
+			// Optional, but allows for larger files.
+			httpGetRequest.SendChunked = true;
+
+
+			// Specify the request for source code.
+			//httpGetRequest.Headers.Add(@"Translate", "F");
+			if (headers != null && headers.HasKeys())
+				httpGetRequest.Headers = headers;
+
+			byte[] optionsArray = Encoding.UTF8.GetBytes(content);
+			httpGetRequest.ContentLength = optionsArray.Length;
+			if(!String.IsNullOrWhiteSpace(contentType))
+				httpGetRequest.ContentType = contentType;
+
+			// Retrieve the request stream.
+			Stream requestStream =
+			   httpGetRequest.GetRequestStream();
+
+			// Write the string to the destination as a text file.
+			requestStream.Write(optionsArray, 0, optionsArray.Length);
+
+			// Close the request stream.
+			requestStream.Close();
+
+
+
+			// Retrieve the response.
+			HttpWebResponse httpGetResponse =
+			   (HttpWebResponse)httpGetRequest.GetResponse();
+
+			// Retrieve the response stream.
+			Stream responseStream =
+			   httpGetResponse.GetResponseStream();
+
+			// Retrieve the response length.
+			long responseLength =
+			   httpGetResponse.ContentLength;
+
+			// Create a stream reader for the response.
+			StreamReader streamReader =
+			   new StreamReader(responseStream, Encoding.UTF8);
+			StringBuilder sb = new StringBuilder();
+			// Write the response status to the console.
+			sb.AppendFormat(
+			   @"GET Response: {0}",
+			   httpGetResponse.StatusDescription).AppendLine();
+			sb.AppendFormat(
+			   @"  Response Length: {0}",
+			   responseLength).AppendLine();
+			sb.AppendFormat(
+			   @"  Response Text: {0}",
+			   streamReader.ReadToEnd()).AppendLine();
+
+			// Close the response streams.
+			streamReader.Close();
+			responseStream.Close();
+		}
 
         /// <summary>
         /// Refreshes the display of events/todo items.
